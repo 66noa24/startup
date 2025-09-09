@@ -1,0 +1,29 @@
+# nord-lite.toml — a minimal Nord-flavored theme for Helix
+
+# UI and syntax styling
+"ui.background" = { bg = "nord0" }
+"ui.text"       = { fg = "nord6" }
+"comment"       = "nord3"
+
+"keyword"       = "nord8"
+"string"        = "nord14"
+"function"      = "nord9"
+"type"          = "nord11"
+"constant"      = "nord13"
+
+"ui.statusline" = { fg = "nord6", bg = "nord2", modifiers = ["bold"] }
+"ui.selection"  = { bg = "nord2" }
+"ui.virtual" = { fg = "nord13", modifiers = ["bold"] }
+
+# Color palette definitions
+[palette]
+nord0  = "#2e3440"  # Dark background
+nord2  = "#434c5e"  # Active line / selection
+nord3  = "#4c566a"  # Comments
+nord6  = "#eceff4"  # Base text
+nord8  = "#81a1c1"  # Keywords
+nord9  = "#88c0d0"  # Functions
+nord11 = "#8fbcbb"  # Types
+nord13 = "#d08770"  # Constants
+nord14 = "#a3be8c"  # Strings
+

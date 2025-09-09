@@ -1,0 +1,16 @@
+theme = "nord-lite"
+
+[keys.normal]
+"j" = "move_char_left"
+"k" = "move_line_down"
+"l" = "move_line_up"
+";" = "move_char_right"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "underline"
+select = "block"
+
+[editor]
+cursorline = true
+

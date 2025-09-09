@@ -1,0 +1,3 @@
+!#/bin/bash
+tailscale up
+x11vnc -display :0 -auth ~/.Xauthority -rfbauth ~/.vnc/passwd -usepw -forever -shared

@@ -1,0 +1,2 @@
+!#/bin/bash
+kitty bash -c 'select action in Shutdown Restart Suspend Logout Cancel; do case $action in Shutdown) sudo poweroff; break;; Restart) sudo reboot; break;; Suspend) sudo ZZZ; break;; Logout) pkill -KILL -u $USER; break;; Cancel) break;; esac; done'
