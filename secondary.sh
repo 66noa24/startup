@@ -17,17 +17,7 @@ copy_pref() {
   echo "5: Emptty"
   echo "6: All"
   read -r -p "(1, 2, 3, 4, 5, 6) " pkgInt
-  class "$pkgInt" in
-    "1") i3_inst ;;
-    "2") helix_inst ;;
-    "3") poly_inst ;;
-    "4") conky_inst ;;
-    "5") emptty_inst ;;
-    "6") all_inst ;;
-    *) echo "$noinput" ;;
-  esac
-  
-}
+  }
 
 i3_inst() {
   echo "Copying i3 configs"
@@ -74,3 +64,13 @@ all_inst() {
 }
 
 ## Main Logic ##
+
+class "$pkgInt" in
+    "1") i3_inst ;;
+    "2") helix_inst ;;
+    "3") poly_inst ;;
+    "4") conky_inst ;;
+    "5") emptty_inst ;;
+    "6") all_inst ;;
+    *) echo "$noinput" ;;
+  esac
