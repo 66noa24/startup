@@ -48,7 +48,29 @@ poly_inst() {
 }
 
 conky_inst() {
-  
+  echo "Coping conky configs"
+  sudo install -d "$dirpath/cnfgs/.etc/conky/conky.conf $PATHxt/conky/conky.conf"
+  echo "Copied conky!"
+}
+
+emptty_inst() {
+  echo "Copying emptty configs"
+  sudo install -d "$dirpath/cnfgs/.etc/emptty/conf $PATHxt/emptty/conf"
+  echo "Copied emptty conf"
+  read -r -p "also move over MOTD file? (y/n) " motdMV
+  case "$motdMV" in
+    y) sudo install "$dirpath/cnfgs/.etc/emptty/motd $PATHxt/emptty/motd"
+    n) echo "Skipping"
+    *) echo "Not valid input"
+  esac
+}
+
+all_inst() {
+  i3_inst
+  helix_inst
+  poly_inst
+  conky_inst
+  emptty_inst
 }
 
 ## Main Logic ##
