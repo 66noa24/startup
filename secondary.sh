@@ -2,8 +2,7 @@
 # Written on 2025-09-09 | En (6624)
 
 # Variables
-PATHhm="/home/$USER/.config/"
-PATHxt="/etc/"
+PATHhm="/home/$USER/.config"
 noinput="Error, not a valid option"
 dirpath="$(pwd)"
 ## Functions ##
@@ -21,31 +20,36 @@ copy_pref() {
 
 i3_inst() {
   echo "Copying i3 configs"
-  install -d "$dirpath/cnfgs/.config/i3/config $PATHhm/i3/config"
+  mkdir -p /home/$USER/.config/i3/.config.swo
+  cp "$dirpath/cnfgs/.config/i3/config $PATHhm/i3/config"
   echo "Copied i3!"
 }
 
 helix_inst() {
   echo "Copying helix configs"
-  install -d "$dirpath/cnfgs/.config/helix/config.toml $PATHhm/helix/config.toml"
+  mkdir -p /home/$USER/.config/helix
+  cp "$dirpath/cnfgs/.config/helix/config.toml $PATHhm/helix/config.toml"
   echo "Copied helix!"
 }
 
 poly_inst() {
   echo "Copying polybar configs"
-  sudo install -d "$dirpath/cnfgs/.etc/polybar/config.ini $PATHxt/polybar/config.ini"
+  sudo mkdir -p "/etc/polybar"
+  sudo cp "$dirpath/cnfgs/.etc/polybar/config.ini /etc/polybar/config.ini"
   echo "Copied polybar!"
 }
 
 conky_inst() {
   echo "Coping conky configs"
-  sudo install -d "$dirpath/cnfgs/.etc/conky/conky.conf $PATHxt/conky/conky.conf"
+  sudo mkdir -p "/etc/conky"
+  sudo cp "$dirpath/cnfgs/.etc/conky/conky.conf /etc/conky/conky.conf"
   echo "Copied conky!"
 }
 
 emptty_inst() {
   echo "Copying emptty configs"
-  sudo install -d "$dirpath/cnfgs/.etc/emptty/conf $PATHxt/emptty/conf"
+  sudo mkdir -p "/etc/emptty"
+  sudo cp "$dirpath/cnfgs/.etc/emptty/conf $PATHxt/emptty/conf"
   echo "Copied emptty conf"
   read -r -p "also move over MOTD file? (y/n) " motdMV
   case "$motdMV" in
