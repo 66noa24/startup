@@ -6,6 +6,12 @@ theme = "nord-lite"
 "l" = "move_line_up"
 ";" = "move_char_right"
 
+[keys.select]
+"j" = "extend_char_left"
+"k" = "extend_line_down"
+"l" = "extend_line_up"
+";" = "extend_char_right"
+
 [editor.cursor-shape]
 insert = "bar"
 normal = "underline"
