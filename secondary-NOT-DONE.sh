@@ -70,6 +70,7 @@ all_inst() {
 
 ## Main Logic ##
 
+copy_pref
 case "$pkgInt" in
     "1") i3_inst ;;
     "2") helix_inst ;;
