@@ -22,39 +22,39 @@ copy_pref() {
 i3_inst() {
   echo "Copying i3 configs"
   mkdir -p /home/$USER/.config/i3/
-  cp "$dirpath/cnfgs/.config/i3/config $PATHhm/i3/config"
+  cp "$dirpath/cnfgs/.config/i3/config $PATHhm/i3/"
   echo "Copied i3!"
 }
 
 helix_inst() {
   echo "Copying helix configs"
   mkdir -p /home/$USER/.config/helix
-  cp "$dirpath/cnfgs/.config/helix/config.toml $PATHhm/helix/config.toml"
+  cp "$dirpath/cnfgs/.config/helix/config.toml $PATHhm/helix/"
   echo "Copied helix!"
 }
 
 poly_inst() {
   echo "Copying polybar configs"
   sudo mkdir -p "/etc/polybar"
-  sudo cp "$dirpath/cnfgs/.etc/polybar/config.ini /etc/polybar/config.ini"
+  sudo cp "$dirpath/cnfgs/.etc/polybar/config.ini /etc/polybar/"
   echo "Copied polybar!"
 }
 
 conky_inst() {
   echo "Coping conky configs"
   sudo mkdir -p "/etc/conky"
-  sudo cp "$dirpath/cnfgs/.etc/conky/conky.conf /etc/conky/conky.conf"
+  sudo cp "$dirpath/cnfgs/.etc/conky/conky.conf /etc/conky/"
   echo "Copied conky!"
 }
 
 emptty_inst() {
   echo "Copying emptty configs"
   sudo mkdir -p "/etc/emptty"
-  sudo cp "$dirpath/cnfgs/.etc/emptty/conf etc/emptty/conf"
+  sudo cp "$dirpath/cnfgs/.etc/emptty/conf etc/emptty/"
   echo "Copied emptty conf"
   read -r -p "also move over MOTD file? (y/n) " motdMV
   case "$motdMV" in
-    y) sudo cp "$dirpath/cnfgs/.etc/emptty/motd etc/emptty/motd" ;;
+    y) sudo cp "$dirpath/cnfgs/.etc/emptty/motd etc/emptty/" ;;
     n) echo "Skipping" ;;
     *) echo "Not valid input" ;;
   esac
