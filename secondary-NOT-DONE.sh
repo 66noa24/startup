@@ -16,7 +16,7 @@ copy_pref() {
   echo "5: Emptty"
   echo "6: All"
   read -r -p "(1, 2, 3, 4, 5, 6) " pkgInt
-  export $pkgInt
+  # export $pkgInt
   }
 
 i3_inst() {
@@ -70,7 +70,7 @@ all_inst() {
 
 ## Main Logic ##
 
-class "$pkgInt" in
+case "$pkgInt" in
     "1") i3_inst ;;
     "2") helix_inst ;;
     "3") poly_inst ;;
