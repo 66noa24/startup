@@ -22,7 +22,7 @@ copy_pref() {
 i3_inst() {
   echo "Copying i3 configs"
   mkdir -p /home/$USER/.config/i3/
-  cp "$dirpath/cnfgs/.config/i3/config $PATHhm/i3/"
+  cp "$dirpath/cnfgs/.config/i3/config -T $PATHhm/i3/"
   echo "Copied i3!"
 }
 
