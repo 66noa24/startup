@@ -20,7 +20,7 @@ copy_pref() {
 
 i3_inst() {
   echo "Copying i3 configs"
-  mkdir -p /home/$USER/.config/i3/.config.swo
+  mkdir -p /home/$USER/.config/i3/
   cp "$dirpath/cnfgs/.config/i3/config $PATHhm/i3/config"
   echo "Copied i3!"
 }
@@ -49,11 +49,11 @@ conky_inst() {
 emptty_inst() {
   echo "Copying emptty configs"
   sudo mkdir -p "/etc/emptty"
-  sudo cp "$dirpath/cnfgs/.etc/emptty/conf $PATHxt/emptty/conf"
+  sudo cp "$dirpath/cnfgs/.etc/emptty/conf etc/emptty/conf"
   echo "Copied emptty conf"
   read -r -p "also move over MOTD file? (y/n) " motdMV
   case "$motdMV" in
-    y) sudo install "$dirpath/cnfgs/.etc/emptty/motd $PATHxt/emptty/motd"
+    y) sudo cp "$dirpath/cnfgs/.etc/emptty/motd etc/emptty/motd"
     n) echo "Skipping"
     *) echo "Not valid input"
   esac
