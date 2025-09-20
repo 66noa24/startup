@@ -53,9 +53,9 @@ emptty_inst() {
   echo "Copied emptty conf"
   read -r -p "also move over MOTD file? (y/n) " motdMV
   case "$motdMV" in
-    y) sudo cp "$dirpath/cnfgs/.etc/emptty/motd etc/emptty/motd"
-    n) echo "Skipping"
-    *) echo "Not valid input"
+    y) sudo cp "$dirpath/cnfgs/.etc/emptty/motd etc/emptty/motd" ;;
+    n) echo "Skipping" ;;
+    *) echo "Not valid input" ;;
   esac
 }
 
