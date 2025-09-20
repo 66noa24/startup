@@ -28,9 +28,10 @@ i3_inst() {
 
 helix_inst() {
   echo "Copying helix configs"
-  mkdir -p /home/$USER/.config/helix
+  mkdir -p /home/$USER/.config/helix/themes
   cp "$dirpath/cnfgs/.config/helix/config.toml" "$PATHhm/helix/"
-  echo "Copied helix!"
+  echo "Copied helix main config"
+  cp "$dirpath/cnfgs/.config/helix/themes/*" "$PATHhm/helix/themes"
 }
 
 poly_inst() {
