@@ -58,7 +58,7 @@ emptty_inst() {
     n) echo "Skipping" ;;
     *) echo "Not valid input" ;;
   esac
-``}
+}
 
 all_inst() {
   i3_inst
