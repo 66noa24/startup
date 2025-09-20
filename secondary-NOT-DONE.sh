@@ -16,6 +16,7 @@ copy_pref() {
   echo "5: Emptty"
   echo "6: All"
   read -r -p "(1, 2, 3, 4, 5, 6) " pkgInt
+  export $pkgInt
   }
 
 i3_inst() {
