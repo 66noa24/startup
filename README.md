@@ -14,8 +14,9 @@ __
   *Not Done*
 ___
 ##### Todo
+- [ ] Update all three after first version
 - [ ] Add desktop and laptop configuration options.
   So that I can choose which setup I want
 - [ ] Eventually combine all three scripts
-- [ ] Explanation of intial, secondary, and tertiary scripts.
+- [x] Explanation of intial, secondary, and tertiary scripts.
 - [x] Add helix themes folder to git tree, and update secondary
