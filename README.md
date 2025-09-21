@@ -1,4 +1,6 @@
 ### ==Updates==
+- 092125
+  - Started tertiary script (in testing branch)
 - 092025
   - Finished secondary script, which copies over all config files
   - Added helix themes, fixed secondary.sh
