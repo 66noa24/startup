@@ -31,7 +31,7 @@ helix_inst() {
   mkdir -p /home/$USER/.config/helix/themes
   cp "$dirpath/cnfgs/.config/helix/config.toml" "$PATHhm/helix/"
   echo "Copied helix main config"
-  cp -r "$dirpath/cnfgs/.config/helix/themes/" "$PATHhm/helix/themes"
+  cp -r "$dirpath/cnfgs/.config/helix/themes/" "$PATHhm/helix/"
 }
 
 poly_inst() {
