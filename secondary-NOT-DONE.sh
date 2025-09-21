@@ -51,7 +51,7 @@ conky_inst() {
 emptty_inst() {
   echo "Copying emptty configs"
   sudo mkdir -p "/etc/emptty"
-  sudo cp "$dirpath/cnfgs/.etc/emptty/conf" "etc/emptty/"
+  sudo cp "$dirpath/cnfgs/.etc/emptty/conf" "/etc/emptty/"
   echo "Copied emptty conf"
   read -r -p "also move over MOTD file? (y/n) " motdMV
   case "$motdMV" in
