@@ -26,7 +26,7 @@ bedrock_verify() {
 }
 
 docker_verify() {
-  if docker info >/dev/null 2>&1; then
+  if sudo docker info >/dev/null 2>&1; then
     echo "Docker is installed!"
     dockerinst=true
   else
