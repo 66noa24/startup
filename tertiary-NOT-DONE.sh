@@ -80,3 +80,4 @@ bedrock_verify
 docker_verify
 strata_prefs
 deb_strat_install
+arch_strat_install
