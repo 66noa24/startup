@@ -5,7 +5,6 @@
 
 dirpath="$(pwd)"
 
-echo "!!! -> This script uses native brl command to import strata"
 echo "!!! -> This scrupt ALSO uses docker to import strata"
 echo "!!! -> Please run inital script and install docker if not already"
 echo "-------------------------"
