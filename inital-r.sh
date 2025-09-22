@@ -6,7 +6,6 @@ noinpt="No input, skipping"
 blk_prompt() {
   local prompt_msg=$1
   local end_var=$2
-  echo $end_var
   echo "$prompt_msg"
   read -r -p "(y/n): " input
   case "$input" in
