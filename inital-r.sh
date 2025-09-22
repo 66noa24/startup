@@ -27,25 +27,25 @@ blk_action() {
 }
 
 prefs_list() {
-  blk_prompt "Do you want to update the system?" $upSys
-  blk_prompt "Do you want to install deps?" $inDeps
+  blk_prompt "Do you want to update the system?" upSys
+  blk_prompt "Do you want to install deps?" inDeps
   blk_prompt "Do you want to also install Docker?" "$inDocker"
 }
 
 update_system() {
-  blk_prompt "Continue with update?" $upSys
+  blk_prompt "Continue with update?" upSys
   blk_action "$upSys" "sudo xbps-install -Syu" "Skipping system update..." && \
   echo "---> Updated system!"
 }
 
 dep_install() {
-  blk_prompt "Do you want to continue installing deps?" $inDeps
+  blk_prompt "Do you want to continue installing deps?" inDeps
   blk_action "$inDeps" "sudo xbps-install -Syu i3 conky polybar emptty helix kitty nitrogen dmenu libatomic x11vnc lynx" "Skipping dep install..." && \
   echo "---> Installed deps!"
 }
 
 docker_install() {
-  blk_prompt "Do you want to continue install docker?" $inDocker
+  blk_prompt "Do you want to continue install docker?" inDocker
   blk_action "$inDocker" "sudo xbps-install docker" "Skipping docker install..."
   blk_action "$inDocker" "sudo ln -s /etc/sv/docker /var/service/"
   echo "---> Installed Docker!"
