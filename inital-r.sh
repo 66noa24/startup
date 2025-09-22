@@ -28,7 +28,7 @@ blk_action() {
 }
 
 prefs_list() {
-  blk_prompt "Do you want to update the system?" $upSys
+  blk_prompt "Do you want to update the system?" upSys
   blk_prompt "Do you want to install deps?" inDeps
   blk_prompt "Do you want to also install Docker?" inDocker
 }
