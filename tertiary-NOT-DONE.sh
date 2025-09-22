@@ -70,7 +70,7 @@ arch_strat_install() {
   if [ "$archstrat" = true ]; then
     echo "--> Pulling archlinux:latest image from docker" && \
     sudo docker pull archlinux:latest && \
-    echo "--> Creating docker container for archlinux:latest named deb-temp"
+    echo "--> Creating docker container for archlinux:latest named arch-temp"
     sudo docker create --name arch-temp archlinux:latest && \
     echo "--> Exporting filesystem from container to ./docker-tmp/arch-RFS.tar.gz"
     sudo docker export arch-temp | gzip -c > "$dirpath/docker-tmp/arch-RFS.tar.gz" && \
