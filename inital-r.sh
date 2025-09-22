@@ -9,8 +9,8 @@ blk_prompt() {
   echo "$prompt_msg"
   read -r -p "(y/n): " input
   case "$input" in
-    y) eval "$end_var='y'" ;;
-    n) eval "$end_var='n'" ;;
+    "y") eval "$end_var='y'" ;;
+    "n") eval "$end_var='n'" ;;
     *) echo "$noinpt"; eval "$end_var=''" ;;
   esac
 }
@@ -20,8 +20,8 @@ blk_action() {
   local actionP=$2 # Yes action
   local actionN=$3 # No actioin
   case "$choice" in # read upSys var for yes or no
-    y) eval "$actionP" ;;
-    n) eval "$actionN" ;;
+    "y") eval "$actionP" ;;
+    "n") eval "$actionN" ;;
     *) echo "$noinput" ;;
   esac
 }
@@ -29,8 +29,8 @@ blk_action() {
 prefs_list() {
   blk_prompt "Do you want to update the system?" $upSys
   blk_prompt "Do you want to install deps?" $inDeps
-  blk_prompt "Do you want to also install Docker?"$inDocker
-  }
+  blk_prompt "Do you want to also install Docker?"$inDocker"
+}
 
 update_system() {
   blk_prompt "Continue with update?" $upSys
