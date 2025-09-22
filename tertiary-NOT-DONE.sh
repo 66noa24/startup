@@ -73,4 +73,4 @@ deb_strat_install() {
 bedrock_verify
 docker_verify
 strata_prefs
-deb_strat_isntall
+deb_strat_install
