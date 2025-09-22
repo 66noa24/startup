@@ -78,7 +78,7 @@ arch_strat_install() {
     sudo brl import arch "$dirpath/docker-tmp/arch-RFS.tar.gz" && \
     echo "--> Arch imported!"
   fi
-    echo "Skipping Arch strata installation"}
+    echo "Skipping Arch strata installation"
 }
   
 # Main
