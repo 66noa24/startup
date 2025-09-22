@@ -47,8 +47,8 @@ strata_prefs() {
   case "$strataPref" in
     "1") debstrat=true ;;
     "2") archstrat=true ;;
-    "3") debstrat=true ; archstrat=true
-    *) echo "! -> Invalid Option"
+    "3") debstrat=true ; archstrat=true ;;
+    *) echo "! -> Invalid Option" ;;
   esac
 }
 
