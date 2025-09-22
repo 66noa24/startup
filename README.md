@@ -12,7 +12,7 @@ __
   Dependencies for the setup (For void linux)
 - **Secondary.sh**  
   Config files to copy over. **This script edits /etc/, *please look over this script. Its tested but double check anyway***
-- **Tertiary (*Un-done*)**  
+- **Tertiary**  
   This script installed Arch and Debian stratum via docker and `brl import`. This script was tested in a Bedrock(voidlinux) virtual machine. ***But please look over this script regardles***
 ___
 ##### Todo
