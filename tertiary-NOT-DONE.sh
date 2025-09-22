@@ -62,8 +62,9 @@ deb_strat_install() {
     echo "--> Importing stratum"
     sudo brl import debian "$dirpath/docker-tmp/deb-RFS.tar.gz" && \
     echo "--> Debian imported!"
-  fi
+  else
     echo "Skipping debian strata installation"
+  fi
 }
 
 arch_strat_install() {
@@ -77,8 +78,9 @@ arch_strat_install() {
     echo "--> Importing stratum"
     sudo brl import arch "$dirpath/docker-tmp/arch-RFS.tar.gz" && \
     echo "--> Arch imported!"
-  fi
+  else
     echo "Skipping Arch strata installation"
+  fi
 }
   
 # Main
