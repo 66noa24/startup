@@ -64,9 +64,15 @@ deb_strat_install() {
     sudo brl import debian "$dirpath/docker-tmp/deb-RFS.tar.gz" && \
     echo "--> Debian imported!"
   fi
+    echo "Skipping debian strata installation"
 }
 
-
+arch_strat_install() {
+  if [ "$archstrat" = true ]; then
+    sudo brl fetch arch
+  fi
+    echo "Skipping arch strata installation"
+}
 
   
 # Main
