@@ -42,7 +42,7 @@ strata_prefs() {
   echo "1: Debian"
   echo "2: Arch"
   echo "3: Both"
-  read -r -n 1 -p "> " strataPref
+  read -r -p "> " strataPref
 
   case "$strataPref" in
     "1") debstrat=true ;;
