@@ -69,11 +69,18 @@ deb_strat_install() {
 
 arch_strat_install() {
   if [ "$archstrat" = true ]; then
-    sudo brl fetch arch
+    echo "--> Pulling archlinux:latest image from docker" && \
+    sudo docker pull archlinux:latest && \
+    echo "--> Creating docker container for archlinux:latest named deb-temp"
+    sudo docker create --name arch-temp archlinux:latest && \
+    echo "--> Exporting filesystem from container to ./docker-tmp/arch-RFS.tar.gz"
+    sudo docker export arch-temp | gzip -c > "$dirpath/docker-tmp/arch-RFS.tar.gz" && \
+    echo "--> Importing stratum"
+    sudo brl import arch "$dirpath/docker-tmp/arch-RFS.tar.gz" && \
+    echo "--> Arch imported!"
   fi
-    echo "Skipping arch strata installation"
+    echo "Skipping Arch strata installation"}
 }
-
   
 # Main
 bedrock_verify
