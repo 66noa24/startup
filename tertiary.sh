@@ -16,7 +16,6 @@ bedrock_verify() {
     echo "Bedrock is installed, you may continue"
     bedinst=true
   else
-    echo "!! -> Docker not installed"
     echo "!! -> Please install bedrock before continuing..."
     exit
   fi
@@ -25,11 +24,11 @@ bedrock_verify() {
 }
 
 docker_verify() {
-  if ls /var/service/ | grep -q docker; then
+  if sudo docker info >/dev/null 2>&1; then
     echo "Docker is installed!"
     dockerinst=true
   else
-    echo "!! -> Docker is not installed (or daemon is not running). Please isntall docker before continuing..."
+    echo "!! -> Docker is not installed. Please isntall docker before continuing..."
     exit
   fi
   # docker install check vat
