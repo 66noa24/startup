@@ -51,6 +51,7 @@ strata_prefs() {
     esac
   else
     exit 1
+  fi
 }
 
 deb_strat_install() {
