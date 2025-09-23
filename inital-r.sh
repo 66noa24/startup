@@ -33,9 +33,12 @@ prefs_list() {
 }
 
 update_system() {
-  blk_prompt "Continue with update?" upSys
-  blk_action "$upSys" "sudo xbps-install -Syu" "Skipping system update..." && \
-  echo "---> Updated system!"
+  if [ $upSys = "y" ]; then
+    blk_prompt "Continue with update?" upSys
+    blk_action "$upSys" "sudo xbps-install -Syu" "Skipping system update..." && \
+    echo "---> Updated system!"
+  else
+    echo "Skipped!"
 }
 
 dep_install() {
