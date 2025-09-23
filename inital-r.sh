@@ -35,8 +35,7 @@ prefs_list() {
 update_system() {
   if [ $upSys = "y" ]; then
     blk_prompt "Continue with update?" upSys
-    blk_action "$upSys" "sudo xbps-install -Syu" "Skipping system update..." && \
-    echo "---> Updated system!"
+    blk_action "$upSys" "sudo xbps-install -Syu && echo '--> Updated system!'" "Skipping system update..."
   else
     echo "Skipped system update."
   fi
@@ -45,7 +44,7 @@ update_system() {
 dep_install() {
   if [ $inDeps = "y" ]; then
     blk_prompt "Do you want to continue installing deps?" inDeps
-    blk_action "$inDeps" "sudo xbps-install -Syu i3 conky polybar emptty helix kitty nitrogen dmenu libatomic x11vnc lynx && echo '--> Updated System!'" "echo 'Skipping dep install...'"
+    blk_action "$inDeps" "sudo xbps-install -Syu i3 conky polybar emptty helix kitty nitrogen dmenu libatomic x11vnc lynx && echo '--> Installed Deps!'" "echo 'Skipping dep install...'"
   else
     echo "Skipped dep install."
   fi
@@ -55,8 +54,7 @@ docker_install() {
   if [ $inDocker = "y" ]; then
     blk_prompt "Do you want to continue install docker?" inDocker
     blk_action "$inDocker" "sudo xbps-install docker" "echo 'Skipping docker install...'"
-    blk_action "$inDocker" "sudo ln -s /etc/sv/docker /var/service/"
-    echo "---> Installed Docker!"
+    blk_action "$inDocker" "sudo ln -s /etc/sv/docker /var/service/ && echo '--> Installed docker!'" ""
   else
     echo "Skipped docker install."
   fi
