@@ -45,7 +45,7 @@ update_system() {
 dep_install() {
   if [ $inDeps = "y" ]; then
     blk_prompt "Do you want to continue installing deps?" inDeps
-    blk_action "$inDeps" "sudo xbps-install -Syu i3 conky polybar emptty helix kitty nitrogen dmenu libatomic x11vnc lynx" "Skipping dep install..." && \
+    blk_action "$inDeps" "sudo xbps-install -Syu i3 conky polybar emptty helix kitty nitrogen dmenu libatomic x11vnc lynx" "echo 'Skipping dep install...'" && \
     echo "---> Installed deps!"
   else
     echo "Skipped dep install."
@@ -55,7 +55,7 @@ dep_install() {
 docker_install() {
   if [ $inDocker = "y" ]; then
     blk_prompt "Do you want to continue install docker?" inDocker
-    blk_action "$inDocker" "sudo xbps-install docker" "Skipping docker install..."
+    blk_action "$inDocker" "sudo xbps-install docker" "echo 'Skipping docker install...'"
     blk_action "$inDocker" "sudo ln -s /etc/sv/docker /var/service/"
     echo "---> Installed Docker!"
   else
