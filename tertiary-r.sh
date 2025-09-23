@@ -17,6 +17,7 @@ bedrock_verify() {
     bedinst=true
   else
     echo "!! -> Please install bedrock before continuing..."
+    bedinst=false
   fi
   # Bedrock install check var
   export bedinst
@@ -28,6 +29,7 @@ docker_verify() {
     dockerinst=true
   else
     echo "!! -> Docker is not installed. Please isntall docker before continuing..."
+    dockerinst=false
     exit 1
   fi
   # docker install check var
