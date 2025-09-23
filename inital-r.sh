@@ -39,6 +39,7 @@ update_system() {
     echo "---> Updated system!"
   else
     echo "Skipped!"
+  fi
 }
 
 dep_install() {
