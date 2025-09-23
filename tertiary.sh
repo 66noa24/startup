@@ -17,37 +17,41 @@ bedrock_verify() {
     bedinst=true
   else
     echo "!! -> Please install bedrock before continuing..."
-    exit
+    bedinst=false
   fi
   # Bedrock install check var
-  export bedisnt
+  export bedinst
 }
 
 docker_verify() {
-  if ls /var/service/ | grep -q docker; then
+  if find /var/service/ | grep -q docker; then
     echo "Docker is installed!"
     dockerinst=true
   else
     echo "!! -> Docker is not installed. Please isntall docker before continuing..."
-    exit
+    dockerinst=false
   fi
-  # docker install check vat
+  # docker install check var
   export dockerinst
 }
 
 strata_prefs() {
-  echo "Which stratum would you like installed? (1, 2, 3)"
-  echo "1: Debian"
-  echo "2: Arch"
-  echo "3: Both"
-  read -r -p "> " strataPref
+  if [ $bedinst = true ]; then
+    echo "Which stratum would you like installed? (1, 2, 3)"
+    echo "1: Debian"
+    echo "2: Arch"
+    echo "3: Both"
+    read -r -p "> " strataPref
 
-  case "$strataPref" in
-    "1") debstrat=true ;;
-    "2") archstrat=true ;;
-    "3") debstrat=true ; archstrat=true ;;
-    *) echo "! -> Invalid Option" ;;
-  esac
+    case "$strataPref" in
+      "1") debstrat=true ;;
+      "2") archstrat=true ;;
+      "3") debstrat=true ; archstrat=true ;;
+      *) echo "! -> Invalid Option" ;;
+    esac
+  else
+    exit 1
+  fi
 }
 
 deb_strat_install() {
