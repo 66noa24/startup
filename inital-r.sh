@@ -45,10 +45,7 @@ update_system() {
 dep_install() {
   if [ $inDeps = "y" ]; then
     blk_prompt "Do you want to continue installing deps?" inDeps
-    if [ $inDeps = "y" ]; then
-      blk_action "$inDeps" "sudo xbps-install -Syu i3 conky polybar emptty helix kitty nitrogen dmenu libatomic x11vnc lynx" "echo 'Skipping dep install...'" && \
-      echo "---> Installed deps!"
-    fi
+    blk_action "$inDeps" "sudo xbps-install -Syu i3 conky polybar emptty helix kitty nitrogen dmenu libatomic x11vnc lynx && echo '--> Updated System!'" "echo 'Skipping dep install...'" && \
   else
     echo "Skipped dep install."
   fi
