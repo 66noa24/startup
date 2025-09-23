@@ -11,7 +11,7 @@ blk_prompt() {
   case "$input" in
     "y") eval "$end_var='y'" ;;
     "n") eval "$end_var='n'" ;;
-    *) echo "$noinpt"; eval "$end_var=''" ;;
+    *) echo "$noinpt"; eval "$end_var='n'" ;;
   esac
 }
 
@@ -38,21 +38,29 @@ update_system() {
     blk_action "$upSys" "sudo xbps-install -Syu" "Skipping system update..." && \
     echo "---> Updated system!"
   else
-    echo "Skipped!"
+    echo "Skipped system update."
   fi
 }
 
 dep_install() {
-  blk_prompt "Do you want to continue installing deps?" inDeps
-  blk_action "$inDeps" "sudo xbps-install -Syu i3 conky polybar emptty helix kitty nitrogen dmenu libatomic x11vnc lynx" "Skipping dep install..." && \
-  echo "---> Installed deps!"
+  if [ $var = "y" ]; then
+    blk_prompt "Do you want to continue installing deps?" inDeps
+    blk_action "$inDeps" "sudo xbps-install -Syu i3 conky polybar emptty helix kitty nitrogen dmenu libatomic x11vnc lynx" "Skipping dep install..." && \
+    echo "---> Installed deps!"
+  else
+    echo "Skipped dep install."
+  fi
 }
 
 docker_install() {
-  blk_prompt "Do you want to continue install docker?" inDocker
-  blk_action "$inDocker" "sudo xbps-install docker" "Skipping docker install..."
-  blk_action "$inDocker" "sudo ln -s /etc/sv/docker /var/service/"
-  echo "---> Installed Docker!"
+  if [ $var = "y" ]; then
+    blk_prompt "Do you want to continue install docker?" inDocker
+    blk_action "$inDocker" "sudo xbps-install docker" "Skipping docker install..."
+    blk_action "$inDocker" "sudo ln -s /etc/sv/docker /var/service/"
+    echo "---> Installed Docker!"
+  else
+    echo "Skipped docker install."
+  fi
 }
 
 # Function calls
