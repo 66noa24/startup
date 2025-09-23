@@ -1,1 +1,3 @@
 - [ ] add option to enable emptty in secondary
+- [ ] add flags instead of interactive
+- [ ] Add cleanup too tertiary (for docker shit)
