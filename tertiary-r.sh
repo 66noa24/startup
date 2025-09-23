@@ -30,25 +30,27 @@ docker_verify() {
   else
     echo "!! -> Docker is not installed. Please isntall docker before continuing..."
     dockerinst=false
-    exit 1
   fi
   # docker install check var
   export dockerinst
 }
 
 strata_prefs() {
-  echo "Which stratum would you like installed? (1, 2, 3)"
-  echo "1: Debian"
-  echo "2: Arch"
-  echo "3: Both"
-  read -r -p "> " strataPref
+  if [ $dockerinst = true ]; then
+    echo "Which stratum would you like installed? (1, 2, 3)"
+    echo "1: Debian"
+    echo "2: Arch"
+    echo "3: Both"
+    read -r -p "> " strataPref
 
-  case "$strataPref" in
-    "1") debstrat=true ;;
-    "2") archstrat=true ;;
-    "3") debstrat=true ; archstrat=true ;;
-    *) echo "! -> Invalid Option" ;;
-  esac
+    case "$strataPref" in
+      "1") debstrat=true ;;
+      "2") archstrat=true ;;
+      "3") debstrat=true ; archstrat=true ;;
+      *) echo "! -> Invalid Option" ;;
+    esac
+  else
+    exit 1
 }
 
 deb_strat_install() {
