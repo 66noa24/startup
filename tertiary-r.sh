@@ -24,7 +24,7 @@ bedrock_verify() {
 }
 
 docker_verify() {
-  if find /var/service/ | grep -q docker; then
+  if ls /var/service/ | grep -q docker; then
     echo "Docker is installed!"
     dockerinst=true
   else
