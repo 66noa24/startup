@@ -36,7 +36,7 @@ docker_verify() {
 }
 
 strata_prefs() {
-  if [ "$dockerinst" = true ]; then
+  if [ $bedinst = true ]; then
     echo "Which stratum would you like installed? (1, 2, 3)"
     echo "1: Debian"
     echo "2: Arch"
