@@ -17,14 +17,13 @@ bedrock_verify() {
     bedinst=true
   else
     echo "!! -> Please install bedrock before continuing..."
-    exit 1
   fi
   # Bedrock install check var
   export bedinst
 }
 
 docker_verify() {
-  if ls /var/service/ | grep -q docker; then
+  if find /var/service/ | grep -q docker; then
     echo "Docker is installed!"
     dockerinst=true
   else
