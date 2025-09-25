@@ -249,6 +249,7 @@ exec_always --no-startup-id /home/sstf/.resolution-set
 exec_always --no-startup-id pkill -x polybar ; polybar --reload example &
 exec_always --no-startup-id sh -c 'pgrep -x obsidian || obsidian'
 exec_always rclone mount m:storage /home/sstf/other/s3/  --vfs-cache-mode writes   --dir-cache-time 1m   --uid $(id -u) --gid $(id -g)   --umask 0022
+exec_always --no-startup-id dunst &
 
 for_window [class="^.*"] border pixel 5
 gaps inner 9
