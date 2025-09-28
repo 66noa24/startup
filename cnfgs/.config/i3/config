@@ -239,7 +239,10 @@ bindsym $mod+mod1+l exec "i3lock -c 0e182f -e"
 #}
 
 
-###
+### Other bindsyms
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
 
 exec_always nitrogen --restore
 exec_always picom
