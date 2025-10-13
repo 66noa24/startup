@@ -57,7 +57,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id dmenu_run -sf "#81a1c1" -nf "#5e81ac" -nb gray20 -sb gray25  -p "D34TH-D3LL:"
+bindsym $mod+d exec --no-startup-id dmenu_run -sf "#81a1c1" -nf "#5e81ac" -nb gray20 -sb gray25  -p "D34TH-70P:"
 bindsym XF86Favorites exec "zzz"
 bindsym $mod+shift+z exec "zzz"
 # A more modern dmenu replacement is rofi:
@@ -124,26 +124,28 @@ bindsym $mod+a focus parent
 # workspace assign window
 # assign [class="kitty"] 10
 assign [class="discord"] $ws10
+assign [class="vesktop"] $ws10
 assign [class="Hexchat"] 8
 # assign [class="dooble"] 1
 assign [class="obsidian"] $ws11
-assign [class="Spotify"] 10
+assign [class="Spotify"] $ws7
 assign [class="Firefox"] $ws1
+assign [class="Brave-browser"] $ws1
 #assign [class="tuba"] 9 
 assign [class="qemu"] 7
 #assign [class="modrinth-app-wrapped"] 9
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:F" 
+set $ws1 "1:B" 
 set $ws2 "2:T"
 set $ws3 "3"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8:G"
-set $ws9 "9:GL"
+set $ws8 "8"
+set $ws9 "9"
 set $ws10 "10:Di"
 set $ws11 "11:Obs"
 set $ws12 "12"
@@ -202,6 +204,19 @@ mode "resize" {
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
 
+				#increase with alt
+				bindsym Mod1+j resize shrink width 20 px or 20 ppt
+        bindsym Mod1+k resize grow height 20 px or 20 ppt
+        bindsym Mod1+l resize shrink height 20 px or 20 ppt
+        bindsym Mod1+semicolon resize grow width 20 px or 20 ppt
+
+				# increase with control
+        
+				bindsym Control+j resize shrink width 5 px or 5 ppt
+        bindsym Control+k resize grow height 5 px or 5 ppt
+        bindsym Control+l resize shrink height 5 px or 5 ppt
+        bindsym Control+semicolon resize grow width 5 px or 5 ppt
+
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
@@ -221,11 +236,14 @@ bindsym $mod+Shift+s exec "xfce4-screenshooter"
 #bindsym $mod+Control+w exec "/home/sstf/apps/starc.AppImage"
 #bindsym $mod+Control+o exec "/home/sstf/apps/Obsidian-1.7.7.AppImage"
 #bindsym $mod+Control+s exec "flatpak run com.spotify.Client"
+bindsym $mod+control+l exec "/home/sstf/.lsr"
 	###### bindsym $mod+Control+<letter> exec "<path/to/file>"
 
 # Misc. Commands
-bindsym XF86MonBrightnessUp exec "/home/sstf/Other/.binfiles/btnsup.sh"
-bindsym XF86MonBrightnessDown exec "/home/sstf/Other/.binfiles/btnsdown.sh"
+# bindsym XF86MonBrightnessUp exec "/home/sstf/Other/.binfiles/btnsup.sh"
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+# bindsym XF86MonBrightnessDown exec "/home/sstf/Other/.binfiles/btnsdown.sh"
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym $mod+mod1+l exec "i3lock -c 0e182f -e"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
@@ -236,7 +254,10 @@ bindsym $mod+mod1+l exec "i3lock -c 0e182f -e"
 #}
 
 
-###
+### Other bindsyms
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
 
 exec_always nitrogen --restore
 exec_always picom
@@ -244,6 +265,10 @@ exec_always conky
 # Xrandr resolution fix for VNC
 exec_always --no-startup-id /home/sstf/.resolution-set
 exec_always --no-startup-id pkill -x polybar ; polybar --reload example &
+# exec_always --no-startup-id sh -c 'pgrep -x obsidian || obsidian'
+exec_always rclone mount m:storage /home/sstf/other/s3/  --vfs-cache-mode writes   --dir-cache-time 1m   --uid $(id -u) --gid $(id -g)   --umask 0022
+exec_always --no-startup-id dunst &
+
 
 for_window [class="^.*"] border pixel 5
 gaps inner 9
